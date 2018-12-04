@@ -1,0 +1,115 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #606c71;
+    font-size: 1.1rem;
+    padding: 0 0 30px 0;
+}
+.page-header{
+    padding: 3rem 4rem;
+    color: #fff;
+    text-align: center;
+    
+    
+}
+a{
+    text-decoration:none;
+}
+.btn{
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+
+}
+.markdown-body{
+    width: 80%;
+    max-width: 800px;
+    margin:auto;
+}
+img{
+    width: 100%;
+}
+h2{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: #159957;
+}
+thead{
+    background: #eee;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #606c71;
+}
+td,th{
+    padding: 0.5rem 1rem;
+    border: 1px solid #e9ebec;
+}
+
+ul{
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+li code{
+    background: #f0f0f0;
+    padding: 3px 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+pre{
+    padding: 0.8rem;
+    overflow: auto;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    border-radius: 0.3rem;
+    font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #567482;
+    word-wrap: normal;
+    background-color: #f3f6fa;
+    border: solid 1px #dce6f0;
+}
+code{
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+    font-size: 0.9rem;
+    color: #567482;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+}
