@@ -3,10 +3,11 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 
-const fs = require("fs");
+var fs = require("fs-extra");
 const path = require("path");
 const MarkdownIt = require("markdown-it");
 const tip = require("./tip");
+const chalk = require("chalk");
 var Git = require("nodegit");
 const argv = process.argv;
 
@@ -18,20 +19,17 @@ const argv = process.argv;
  */
 
 async function mdtohtml(mdpath,dist) {
-	
 	try {
-		await isExist(path.resolve(__dirname, "../" ,dist));
+		await isExist(path.resolve(mdpath,`../${dist}`));
 	} catch (err) {
-		fs.mkdirSync(path.resolve(__dirname,"../" , dist));
+		fs.mkdirSync(path.resolve(mdpath,`../${dist}`));
 	}
 	const arr = [];
 	getFilePath(mdpath).map((item,index) => {
 		const filepath = path.resolve(mdpath, item);
 		
-		console.log(filepath);
 		if (path.extname(filepath) == ".md") {
 			fs.readFile(filepath, "utf-8", function (err, data) {
-				
 				if (err) {
 					console.log("error");
 				} else {
@@ -42,8 +40,8 @@ async function mdtohtml(mdpath,dist) {
 						title: filename,
 						body: html
 					});
-					fs.writeFile(path.resolve(__dirname, "../blog/", `${filename}.html`), formathtml, () => {
-						console.log(path.resolve(__dirname, `../${dist}/`, `${filename}.html`));
+					fs.writeFile(path.resolve(dist, `${filename}.html`), formathtml, () => {
+						console.log(chalk.magenta(path.resolve(dist, `${filename}.html`)));
 						arr.push({
 							title:filename,
 							url:`${dist}/${filename}.html`
@@ -88,6 +86,7 @@ function indexPage(arr){
 						
 	});
 }
+
 /**
  * 遍历文件
  *
@@ -140,6 +139,7 @@ function formatHtml({
 			`;
 	return tpl;
 }
+
 /**
  * 检查文件夹是否存在
  *
@@ -157,13 +157,27 @@ function isExist(path) {
 		});
 	});
 }
-
-// 执行
-//mdtohtml("./md/",);
-
+function removeDir(dir){
+	let files = fs.readdirSync(dir);
+	console.log(files);
+	for(var i=0;i<files.length;i++){
+		let newPath = path.join(dir,files[i]);
+		console.log(newPath);
+		let stat = fs.statSync(newPath);
+		if(stat.isDirectory()){
+			//如果是文件夹就递归下去
+			removeDir(newPath);
+		}else {
+			//删除文件
+			fs.unlinkSync(newPath);
+		}
+	}
+	fs.rmdirSync(dir);//如果文件夹是空的，就将自己删除掉
+}
+// 初始化项目
 function init(dist){
-	Git.Clone("https://github.com/leinov/webpack-react-multi-page", dist).then((repo)=>{
-		
+	Git.Clone("https://github.com/leinov/lemb", dist).then(()=>{
+		fs.removeSync(path.resolve(dist,"bin")); 
 	});
 }
 
@@ -188,7 +202,7 @@ function main(){
 	}
 	if(argv[2] == "build"){
 		if(!argv[3]){
-			mdtohtml(path.resolve(__dirname,"../markdown"),"blog");
+			mdtohtml("markdown","blog");
 		}else{
 			mdtohtml(path.resolve(__dirname,"../markdown"),argv[3]);
 		}
