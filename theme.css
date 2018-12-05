@@ -34,7 +34,7 @@ a{
 
 }
 .markdown-body{
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     margin:auto;
 }
@@ -120,7 +120,7 @@ code{
     height: 300px;
 }
 .index-body{
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     margin:auto;
     padding-top:30px;

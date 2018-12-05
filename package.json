@@ -1,6 +1,6 @@
 {
   "name": "somb",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "light exquisite markdown blog",
   "main": "index.js",
   "scripts": {

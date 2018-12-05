@@ -7,6 +7,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const MarkdownIt = require("markdown-it");
 const tip = require("./console");
+const bgcolor= require("./bgcolor");
 const chalk = require("chalk");
 const Git = require("nodegit");
 const argv = process.argv;
@@ -86,7 +87,8 @@ function formatHtml({
 	title = "leinov blog",
 	body = "",
 } = {}) {
-	headerstyle = "background-color: #92FFC0;background-image: linear-gradient(120deg, #92FFC0 , #002661);";
+	const colorItem = Math.floor(Math.random()*10);
+	const headerstyle =`background-color:${bgcolor.color[colorItem].from};background-image: linear-gradient(120deg, ${bgcolor.color[colorItem].from} , ${bgcolor.color[colorItem].to});`;
 	const tpl = `
 				<!DOCTYPE html>
 				<html lang="en">
