@@ -16,7 +16,7 @@ npm install somb -g
 
 ```
 somb init myblog
-cd leinov.myblog
+cd myblog
 ```
 
 ### config 
