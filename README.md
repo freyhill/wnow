@@ -12,6 +12,7 @@ npm install somb -g
 
 ```
 somb init leinov.github.io
+cd leinov.github.io
 ```
 ### config base info in ```package.json```
 
@@ -27,7 +28,7 @@ upper config is necessary, afther config these info ,when you build your project
 ### markdown to pages
 
 ```
-cd leinov.github.io
+
 somb build
 somb start
 ```
