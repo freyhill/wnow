@@ -13,8 +13,19 @@ npm install somb -g
 ```
 somb init leinov.github.io
 ```
+### config base info in ```package.json```
+
+```
+{
+  "author": "leinov",
+  "homepage": "https://github.com/leinov/somb",
+  "avatar":"https://avatars0.githubusercontent.com/u/6204210?s=460&v=4"
+}
+```
+upper config is necessary, afther config these info ,when you build your project, all the info will render in your index page
 
 ### markdown to pages
+
 ```
 cd leinov.github.io
 somb build
