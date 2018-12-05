@@ -7,15 +7,17 @@
 const chalk = require("chalk");
 function help(){
 	console.log(chalk.blueBright(`
-fuzhi: 0.08
-Usage: https://github.com/leinov/fuzhi
+somb: 1.0.0
+Usage: https://github.com/leinov/somb
 
 options:
-[from] [to]       copy [from] file or directory to [to]
+[init] [name]       create a new blog template
+[build]				markdown to html
+[start]				open blog in browser
+[--help]			options help
 
 example:
-fuzhi a.js b.js   copy a.js to b.js
-fuzhi dirA dirB   copy directory dirA to dirB
+somb init leinov.github.io   create a leinov.github.io project
 
 		`));
 }

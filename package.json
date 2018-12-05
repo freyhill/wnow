@@ -1,5 +1,5 @@
 {
-  "name": "lemb",
+  "name": "somb",
   "version": "1.0.0",
   "description": "light exquisite markdown blog",
   "main": "index.js",
@@ -7,11 +7,11 @@
     "start": "node www.js"
   },
   "bin": {
-    "lemb": "./bin/lemb.js"
+    "somb": "./bin/somb.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leinov/lemb.git"
+    "url": "git+https://github.com/leinov/somb.git"
   },
   "devDependencies": {},
   "keywords": [
@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/leinov/master-webpack/issues"
   },
-  "homepage": "https://github.com/leinov/lemb",
+  "homepage": "https://github.com/leinov/somb",
   "dependencies": {
     "chalk": "^2.4.1",
     "download-git-repo": "^1.1.0",

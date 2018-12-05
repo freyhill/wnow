@@ -6,7 +6,7 @@
 var fs = require("fs-extra");
 const path = require("path");
 const MarkdownIt = require("markdown-it");
-const tip = require("./tip");
+const tip = require("./console");
 const chalk = require("chalk");
 var Git = require("nodegit");
 const argv = process.argv;
@@ -53,38 +53,6 @@ async function mdtohtml(mdpath,dist) {
 		}
 	});
 
-}
-
-/**
- * 生成首页面
- *
- * @param {*} arr
- */
-function indexPage(arr){
-	let list = "";
-	arr.map((item)=>{
-		list += `<div><a href="${item.url}">${item.title}</a></div>`;
-	});
-
-	const index = `
-				<!DOCTYPE html>
-				<html lang="en">
-				<head>
-					<meta charset="UTF-8">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-					<meta http-equiv="X-UA-Compatible" content="ie=edge">
-					<title></title>
-					<link rel="stylesheet" href="../markdown.css">
-				</head>
-				<body>
-				
-				<div class='index-body'>${list}</div>
-				</body>
-				</html>
-			`;
-	fs.writeFile("index.html",index,()=>{
-						
-	});
 }
 
 /**
@@ -141,6 +109,40 @@ function formatHtml({
 }
 
 /**
+ * 生成首页面
+ *
+ * @param {*} arr
+ */
+function indexPage(arr){
+	let list = "";
+	arr.map((item)=>{
+		list += `<div class="list-item"><a href="${item.url}">${item.title}</a></div>`;
+	});
+	
+	headerstyle = "background-color: #F05F57;background-image: linear-gradient(120deg, #F05F57 , #360940);";
+	const index = `
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<meta http-equiv="X-UA-Compatible" content="ie=edge">
+					<title></title>
+					<link rel="stylesheet" href="../markdown.css">
+				</head>
+				<body>
+				
+				<div class="index-banner" style="${headerstyle}"></div>
+				<div class='index-body'>${list}</div>
+				</body>
+				</html>
+			`;
+	fs.writeFile("index.html",index,()=>{
+						
+	});
+}
+
+/**
  * 检查文件夹是否存在
  *
  * @param {*} path
@@ -157,23 +159,7 @@ function isExist(path) {
 		});
 	});
 }
-function removeDir(dir){
-	let files = fs.readdirSync(dir);
-	console.log(files);
-	for(var i=0;i<files.length;i++){
-		let newPath = path.join(dir,files[i]);
-		console.log(newPath);
-		let stat = fs.statSync(newPath);
-		if(stat.isDirectory()){
-			//如果是文件夹就递归下去
-			removeDir(newPath);
-		}else {
-			//删除文件
-			fs.unlinkSync(newPath);
-		}
-	}
-	fs.rmdirSync(dir);//如果文件夹是空的，就将自己删除掉
-}
+
 // 初始化项目
 function init(dist){
 	Git.Clone("https://github.com/leinov/lemb", dist).then(()=>{
@@ -187,9 +173,13 @@ function start(){
 		require("../www.js");
 	}
 }
+// 帮助
 
 // 主调函数
 function main(){
+	if(!argv[2]){
+		tip.help();
+	}
 	if(argv[2] == "init"){
 		if(!argv[3]){
 			console.log(tip.error("请输入要创建的名称"));
@@ -207,6 +197,9 @@ function main(){
 			mdtohtml(path.resolve(__dirname,"../markdown"),argv[3]);
 		}
 		
+	}
+	if(argv[2] == "--help"){
+		tip.help();
 	}
 }
 
