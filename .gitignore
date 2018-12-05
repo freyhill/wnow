@@ -33,6 +33,6 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
-
+.npmignore
 .DS_Store
 
