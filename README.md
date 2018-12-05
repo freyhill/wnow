@@ -1,6 +1,6 @@
 # somb
 
-somb is smart light-weight markdown to html 
+somb is smart light-weight markdown to html tool
 
 ## [Demo](http://leinov.github.io/blog)
 
@@ -40,7 +40,7 @@ somb build
 somb start
 ```
 
-## 🌐 use in github page
+## 🌐 Use in github page
  create a new repository named [name].github.io (leinov.github.io) in your github 
  
  ```
