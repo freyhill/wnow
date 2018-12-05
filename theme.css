@@ -17,6 +17,7 @@ body{
 }
 a{
     text-decoration:none;
+    color:#0366d6;
 }
 .btn{
     padding: 0.6rem 0.9rem;
