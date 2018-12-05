@@ -2,7 +2,7 @@
 
 somb is smart light-weight markdown to html tool
 
-## [Demo](http://leinov.github.io/blog)
+## [Demo](https://leinov.github.io/blog/)
 
 ## 🐭 Useage
 
