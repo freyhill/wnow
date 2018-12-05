@@ -3,12 +3,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 
-var fs = require("fs-extra");
+const fs = require("fs-extra");
 const path = require("path");
 const MarkdownIt = require("markdown-it");
 const tip = require("./console");
 const chalk = require("chalk");
-var Git = require("nodegit");
+const Git = require("nodegit");
 const argv = process.argv;
 const packageJson = require("../package.json");
 
@@ -25,7 +25,7 @@ async function mdtohtml(mdpath,dist) {
 		fs.mkdirSync(path.resolve(mdpath,`../${dist}`));
 	}
 	const arr = [];
-	getFilePath(mdpath).map((item,index) => {
+	getFilePath(mdpath).map((item) => {
 		const filepath = path.resolve(mdpath, item);
 		
 		if (path.extname(filepath) == ".md") {
@@ -82,7 +82,6 @@ function getFilePath(path){
 function formatHtml({
 	title = "leinov blog",
 	body = "",
-	giturl = ""
 } = {}) {
 	headerstyle = "background-color: #92FFC0;background-image: linear-gradient(120deg, #92FFC0 , #002661);";
 	const tpl = `
@@ -117,7 +116,6 @@ function indexPage(arr){
 	arr.map((item)=>{
 		list += `<div class="list-item"><a href="${item.url}">${item.title}</a></div>`;
 	});
-	
 	headerstyle = "background-color: #F05F57;background-image: linear-gradient(120deg, #F05F57 , #360940);";
 	const index = `
 				<!DOCTYPE html>
@@ -126,8 +124,8 @@ function indexPage(arr){
 					<meta charset="UTF-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<meta http-equiv="X-UA-Compatible" content="ie=edge">
-					<title>{}</title>
-					<link rel="stylesheet" href="../theme.css">
+					<title>${packageJson.author?packageJson.author:"blog"}</title>
+					<link rel="stylesheet" href="theme.css">
 				</head>
 				<body>
 				
@@ -169,9 +167,11 @@ function isExist(path) {
 
 // 初始化项目
 function init(dist){
+	console.log(chalk.green("creating..."));
 	Git.Clone("https://github.com/leinov/lemb", dist).then(()=>{
 		fs.removeSync(path.resolve(dist,"bin")); 
 		fs.removeSync(path.resolve(dist,".git")); 
+		console.log(chalk.blueBright(`${dist} created success !`));
 	});
 }
 
@@ -181,7 +181,6 @@ function start(){
 		require("../www.js");
 	}
 }
-// 帮助
 
 // 主调函数
 function main(){
@@ -204,7 +203,6 @@ function main(){
 		}else{
 			mdtohtml(path.resolve(__dirname,"../markdown"),argv[3]);
 		}
-		
 	}
 	if(argv[2] == "--help"){
 		tip.help();
