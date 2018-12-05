@@ -11,7 +11,6 @@ const chalk = require("chalk");
 var Git = require("nodegit");
 const argv = process.argv;
 const packageJson = require("../package.json");
-console.log(packageJson);
 
 /**
  * 获取md文件生成html并打包到blog文件夹下
@@ -208,6 +207,9 @@ function main(){
 	}
 	if(argv[2] == "--help"){
 		tip.help();
+	}
+	if(argv[2] === "-v"){
+		console.log(`version: ${packageJson.version}`);
 	}
 }
 

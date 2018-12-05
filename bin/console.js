@@ -15,6 +15,7 @@ options:
 [build]				markdown to html
 [start]				open blog in browser
 [--help]			options help
+[-v]                view the version of somb
 
 example:
 somb init leinov.github.io   create a leinov.github.io project
