@@ -10,14 +10,18 @@ const tip = require("./console");
 const chalk = require("chalk");
 const Git = require("nodegit");
 const argv = process.argv;
-const packageJson = require("../package.json");
+let packageJson ={};
 
+try{
+	packageJson = require(path.resolve(process.cwd(),"package.json"));
+}catch(err){
+	console.log(chalk.red("no package.json!"));
+}
 /**
  * 获取md文件生成html并打包到blog文件夹下
  *
  * @param {*} mdpath
  */
-
 async function mdtohtml(mdpath,dist) {
 	try {
 		await isExist(path.resolve(mdpath,`../${dist}`));
@@ -52,7 +56,6 @@ async function mdtohtml(mdpath,dist) {
 			});
 		}
 	});
-
 }
 
 /**
@@ -121,26 +124,25 @@ function indexPage(arr){
 	const index = `
 				<!DOCTYPE html>
 				<html lang="en">
-				<head>
-					<meta charset="UTF-8">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-					<meta http-equiv="X-UA-Compatible" content="ie=edge">
-					<title>${packageJson.author?packageJson.author:"blog"}</title>
-					<link rel="stylesheet" href="theme.css">
-				</head>
-				<body>
-				
-				<div class="index-banner" style="${headerstyle}">
-				<div class="page-header">
-					<div>
-						<image src="${packageJson.avatar}" />
-						<h2>${packageJson.author?packageJson.author:""}</h2>
-					</div>
-					<a href="${packageJson.homepage?packageJson.homepage:""}" class="btn">${packageJson.author?packageJson.author:""} GitHub</a>
-				</div>
-				</div>
-				<div class='index-body'>${list}</div>
-				</body>
+					<head>
+						<meta charset="UTF-8">
+						<meta name="viewport" content="width=device-width, initial-scale=1.0">
+						<meta http-equiv="X-UA-Compatible" content="ie=edge">
+						<title>${packageJson.author?packageJson.author:"blog"}</title>
+						<link rel="stylesheet" href="theme.css">
+					</head>
+					<body>
+						<div class="index-banner" style="${headerstyle}">
+							<div class="page-header">
+								<div>
+									<image src="${packageJson.avatar}" />
+									<h2>${packageJson.author?packageJson.author:""}</h2>
+								</div>
+								<a href="${packageJson.homepage?packageJson.homepage:""}" class="btn">${packageJson.author?packageJson.author:""} GitHub</a>
+							</div>
+						</div>
+						<div class='index-body'>${list}</div>
+					</body>
 				</html>
 			`;
 	fs.writeFile("index.html",index,()=>{
