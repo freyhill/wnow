@@ -2,19 +2,20 @@
 
 somb is smart light-weight markdown to html 
 
-## [Demo](http://leinov.com/blog)
-## Useage
+## [Demo](http://leinov.github.io/blog)
+## 🐭 Useage
 ### install 
 ```
 npm install somb -g
 ```
-### create blog project
+### create blog 
 
 ```
 somb init leinov.github.io
 cd leinov.github.io
 ```
-### config base info in ```package.json```
+### config 
+config some infomation in your ```package.json```
 
 ```
 {
@@ -23,7 +24,7 @@ cd leinov.github.io
   "avatar":"https://avatars0.githubusercontent.com/u/6204210?s=460&v=4"
 }
 ```
-upper config is necessary, afther config these info ,when you build your project, all the info will render in your index page
+upper config is necessary, afther config these info ,when you build your project, all of the info will render in your index page
 
 ### markdown to pages
 
@@ -32,5 +33,12 @@ upper config is necessary, afther config these info ,when you build your project
 somb build
 somb start
 ```
-
- 
+## 🌐 use in github page
+ create a new repository named [name].github.io (leinov.github.io) in your github 
+ ```
+ git clone git@github.com:[name]/[name].github.io.git
+ cd [name].github.io
+ somb init blog
+ somb build
+ ```
+ push your repository and wist [[name].github.io/blog](http://leinov.github.io/blog)
