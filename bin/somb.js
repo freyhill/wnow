@@ -10,7 +10,8 @@ const tip = require("./console");
 const chalk = require("chalk");
 var Git = require("nodegit");
 const argv = process.argv;
-
+const packageJson = require("../package.json");
+console.log(packageJson);
 
 /**
  * 获取md文件生成html并打包到blog文件夹下
@@ -93,13 +94,12 @@ function formatHtml({
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<meta http-equiv="X-UA-Compatible" content="ie=edge">
 					<title>${title}</title>
-					<link rel="stylesheet" href="../markdown.css">
+					<link rel="stylesheet" href="../theme.css">
 				</head>
 				<body>
 				<section class="page-header" style='${headerstyle}'>
 				<h1 class="project-name">${title}</h1>
-				<h2 class="project-tagline">${title}</h2>
-					<a href="${giturl}" class="btn">View on GitHub</a>
+					<a href="${packageJson.homepage?packageJson.homepage:""}" class="btn">View on GitHub</a>
 				</section>
 				<div class='markdown-body' >${body}</div>
 				</body>
@@ -127,12 +127,20 @@ function indexPage(arr){
 					<meta charset="UTF-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<meta http-equiv="X-UA-Compatible" content="ie=edge">
-					<title></title>
-					<link rel="stylesheet" href="../markdown.css">
+					<title>{}</title>
+					<link rel="stylesheet" href="../theme.css">
 				</head>
 				<body>
 				
-				<div class="index-banner" style="${headerstyle}"></div>
+				<div class="index-banner" style="${headerstyle}">
+				<div class="page-header">
+					<div>
+						<image src="${packageJson.avatar}" />
+						<h2>${packageJson.author?packageJson.author:""}</h2>
+					</div>
+					<a href="${packageJson.homepage?packageJson.homepage:""}" class="btn">${packageJson.author?packageJson.author:""} GitHub</a>
+				</div>
+				</div>
 				<div class='index-body'>${list}</div>
 				</body>
 				</html>
