@@ -1,7 +1,9 @@
 # somb
 
 somb is smart light-weight markdown to html 
-## useage
+
+## [Demo](http://leinov.com/blog)
+## Useage
 ### install 
 ```
 npm install somb -g
