@@ -40,12 +40,15 @@ wnow build
 ```
 
 ### start 
+
 ```
 wnow start
 ```
+
 Automatically start the blog page in browser
 
 ## 🌐 Use in github page
+
  create a new repository named [name].github.io (leinov.github.io) in your github 
  
  ```
