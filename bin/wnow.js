@@ -105,7 +105,7 @@ function formatHtml({
 					<a href="${packageJson.homepage?packageJson.homepage:""}" class="btn">View on GitHub</a>
 				</section>
 				<div class='markdown-body' >${body}</div>
-				<div style="text-align:center; padding:10px 0;">powered by <a style="color:#F05F57" href="https://github.com/leinov/somb">somb!</a></div>
+				<div style="text-align:center; padding:10px 0;">powered by <a style="color:#F05F57" href="https://github.com/leinov/wnow">wnow!</a></div>
 				</body>
 				</html>
 			`;

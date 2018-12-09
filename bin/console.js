@@ -7,17 +7,17 @@
 const chalk = require("chalk");
 function help(){
 	console.log(chalk.blueBright(`
-somb: 1.0.0
-Usage: https://github.com/leinov/somb
+wnow: 1.0.0
+Usage: https://github.com/leinov/wnow
 options:
 [init] [name]       create a new blog template
 [build]				markdown to html
 [start]				open blog in browser
 [--help]			options help
-[-v]                view the version of somb
+[-v]                view the version of wnow
 
 example:
-somb init leinov.github.io   create a leinov.github.io project
+wnow init leinov.github.io   create a leinov.github.io project
 		`));
 }
 

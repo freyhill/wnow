@@ -1,17 +1,17 @@
 {
-  "name": "somb",
-  "version": "1.0.8",
-  "description": "light exquisite markdown blog",
-  "main": "index.js",
+  "name": "wnow",
+  "version": "1.0.0",
+  "description": "A lightweight markdown blog compiler",
+  "main": "./bin/wnow.js",
   "scripts": {
     "start": "node www.js"
   },
   "bin": {
-    "somb": "./bin/somb.js"
+    "wnow": "./bin/wnow.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leinov/somb.git"
+    "url": "git+https://github.com/leinov/wnow.git"
   },
   "devDependencies": {},
   "keywords": [
@@ -23,9 +23,9 @@
   "author": "leinov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/leinov/master-webpack/issues"
+    "url": "https://github.com/leinov/wnow/issues"
   },
-  "homepage": "https://github.com/leinov/somb",
+  "homepage": "https://github.com/leinov/wnow",
   "dependencies": {
     "chalk": "^2.4.1",
     "download-git-repo": "^1.1.0",

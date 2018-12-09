@@ -1,6 +1,6 @@
-# somb
+# wnow
 
-somb is smart light-weight markdown to html tool
+wnow is a lightweight markdown blog compiler
 
 ## [Demo](http://www.leinov.com/blog/)
 
@@ -9,13 +9,13 @@ somb is smart light-weight markdown to html tool
 ### install 
 
 ```
-npm install somb -g
+npm install wnow -g
 ```
 
 ### create blog 
 
 ```
-somb init myblog
+wnow init myblog
 cd myblog
 ```
 
@@ -26,7 +26,7 @@ config some infomation in ```package.json```
 ```
 {
   "author": "leinov",
-  "homepage": "https://github.com/leinov/somb",
+  "homepage": "https://github.com/leinov/wnow",
   "avatar":"https://avatars0.githubusercontent.com/u/6204210?s=460&v=4"
 }
 ```
@@ -36,12 +36,12 @@ upper configuration is necessary, afther config these info ,when you build your 
 ### compile markdown to pages
 
 ```
-somb build
+wnow build
 ```
 
 ### start 
 ```
-somb start
+wnow start
 ```
 Automatically start the blog page in browser
 
@@ -51,7 +51,7 @@ Automatically start the blog page in browser
  ```
  git clone git@github.com:[name]/[name].github.io.git
  cd [name].github.io
- somb init blog
- somb build
+ wnow init blog
+ wnow build
  ```
  push your repository and visit [[name].github.io/blog](http://leinov.github.io/blog)
