@@ -4,8 +4,8 @@ const color = [
 		to:"#32CCBC"
 	},
 	{
-		from:"#ABDCFF",
-		to:"#0396FF"
+		from:"#3B2667",
+		to:"#BC78EC"
 	},
 	{
 		from:"#E2B0FF",

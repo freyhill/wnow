@@ -33,8 +33,13 @@ config some infomation in ```package.json```
 
 upper configuration is necessary, afther config these info ,when you build your project, all of the info will render on your index page
 
-### compile markdown to pages
+### add a new markdown page
 
+```
+wnow new '这是一个新页面'
+```
+
+### compile markdown to pages
 ```
 wnow build
 ```

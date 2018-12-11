@@ -12,8 +12,7 @@ body{
     padding: 3rem 4rem;
     color: #fff;
     text-align: center;
-    
-    
+    box-shadow: 0 1px 30px #bbb;
 }
 a{
     text-decoration:none;
@@ -36,7 +35,11 @@ a{
 .markdown-body{
     width: 90%;
     max-width: 800px;
-    margin:auto;
+    border: 1px solid #f2f2f2;
+    padding: 30px;
+    margin: 20px auto;
+    box-shadow: 0 0 8px #f1f1f1;
+    border-radius: 4px;
 }
 img{
     width: 100%;
@@ -115,10 +118,7 @@ code{
     background: transparent;
 }
 
-.index-banner{
-    width: 100%;
-    height: 300px;
-}
+
 .index-body{
     width: 90%;
     max-width: 800px;
